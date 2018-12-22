@@ -13,11 +13,17 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
 
     def koszt_podrozy(self):
         odleglosc = self.lineEdit_Odleglosc.text()
+        self.odleglosc = float
         print(odleglosc)
         cena_za_litr = self.lineEdit_Cena_za_litr.text()
+        self.cena_za_litr = float
         print(cena_za_litr)
         spalanie = self.lineEdit_Spalanie.text()
-        print(spalanie )
+        self.spalanie = float
+        print(spalanie)
+        wynik = self.lineEdit_Wynik.text()
+        wynik = float(odleglosc)/100 * (float(cena_za_litr) * float(spalanie))
+        print(wynik)
 
 
 
