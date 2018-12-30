@@ -2,7 +2,11 @@ from PyQt5 import QtWidgets
 
 from ui_dziennik_kosztow import Ui_Dziennik
 
-from PyQt5 import QtGui
+import time
+
+from PyQt5.QtCore import QDate, QDateTime
+
+from PyQt5 import QtCore
 
 import ui_dziennik_kosztow
 
@@ -20,6 +24,7 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
         self.setWindowTitle("Moj Dziennik")
         self.pushButton.clicked.connect(self.koszt_podrozy)
         self.pushButton.clicked.connect(lambda: self.koszt_podrozy())
+        self.clock()
 
 
     def koszt_podrozy(self):
@@ -36,6 +41,13 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
         wynik = float(odleglosc)/100 * (float(cena_za_litr) * float(spalanie))
         print(wynik)
         self.lineEdit_Wynik.setText(str(wynik))
+
+    def clock(self):
+        cur_time = time.strftime("%H:%M:%S")
+        cur_date = "2018/12/30"
+        date_time = cur_date + cur_time
+        now = QtCore.QDateTime.currentDateTime()
+        self.dateTimeEdit.setDateTime(now)
 
 
 
