@@ -110,7 +110,7 @@ class Ui_Dziennik(object):
         self.lineEdit_8.setText("")
         self.lineEdit_8.setObjectName("lineEdit_8")
         self.dateTimeEdit = QtWidgets.QDateTimeEdit(self.tab)
-        self.dateTimeEdit.setGeometry(QtCore.QRect(350, 0, 131, 22))
+        self.dateTimeEdit.setGeometry(QtCore.QRect(330, 0, 151, 22))
         self.dateTimeEdit.setObjectName("dateTimeEdit")
         self.label_9 = QtWidgets.QLabel(self.tab)
         self.label_9.setGeometry(QtCore.QRect(0, 370, 101, 16))
