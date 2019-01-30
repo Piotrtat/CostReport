@@ -4,6 +4,8 @@ from ui_dziennik_kosztow import Ui_Dziennik
 
 import time
 
+from PyQt5 import QtTest
+
 from PyQt5.QtCore import QDate, QDateTime
 
 from PyQt5 import QtCore
@@ -25,6 +27,7 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
         self.pushButton.clicked.connect(self.koszt_podrozy)
         self.pushButton.clicked.connect(lambda: self.koszt_podrozy())
         self.clock()
+        self.clock_2()
 
 
     def koszt_podrozy(self):
@@ -48,6 +51,12 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
         date_time = cur_date + cur_time
         now = QtCore.QDateTime.currentDateTime()
         self.dateTimeEdit.setDateTime(now)
+        QtTest.QTest.qSleep(1)
+
+    def clock_2(self):
+        x = time.strftime("%H:%M:%S")
+        print(x)
+        self.label_clock.setText(x)
 
 
 
