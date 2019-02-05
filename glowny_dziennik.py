@@ -25,9 +25,11 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
         self.showMaximized()
         self.setWindowTitle("Moj Dziennik")
         self.pushButton.clicked.connect(self.koszt_podrozy)
-        self.pushButton.clicked.connect(lambda: self.koszt_podrozy())
+        #self.pushButton.clicked.connect(lambda: self.koszt_podrozy())
         self.clock()
         self.clock_2()
+        #self.cena_paliwa()
+        self.pushButton_2.clicked.connect(self.cena_paliwa)
 
 
     def koszt_podrozy(self):
@@ -57,6 +59,31 @@ class DziennikWindow(QtWidgets.QMainWindow,Ui_Dziennik):
         x = time.strftime("%H:%M:%S")
         print(x)
         self.label_clock.setText(x)
+
+    def cena_paliwa(self):
+        global koszt
+        licznik = self.lineEdit_licznik.text()
+        self.licznik = float
+        print(licznik)
+        zatankowano = self.lineEdit_zatankowano.text()
+        self.zatankowano = float
+        print(zatankowano)
+        cena_za_litr_paliwa = self.lineEdit_cena_za_litr_paliwa.text()
+        self.lineEdit_cena_za_litr_paliwa = float
+        print(cena_za_litr_paliwa)
+        data = self.lineEdit_data.text()
+        self.data = float
+        print(data)
+        koszt = float(zatankowano)*float(cena_za_litr_paliwa)
+        print(koszt)
+        self.lineEdit_koszt.setText(str(koszt))
+
+
+
+
+
+
+
 
 
 
